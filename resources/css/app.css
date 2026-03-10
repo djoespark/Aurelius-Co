@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* 1. Imports des Polices de Luxe */
+@import "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap";
+
+@theme {
+  /* 2. Typographies */
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  
+  /* 3. Palette Chromatique Aurelius */
+  --color-night: #0a0a0b; /* Profondeur et Mystère */
+  --color-gold: #c5a059;  /* Élégance et Prestige */
+  --color-silk: #f4f4f2;  /* Pureté et Douceur */
+
+  /* 4. Animations sur mesure pour le Hero */
+  --animate-fade-up: fade-up 1.5s ease-out forwards;
+  --animate-gold-pulse: gold-pulse 3s infinite;
+
+  --transition-luxury: cubic-bezier(0.4, 0, 0.2, 1);
+  --drawer-width: 450px;
+  --blur-intense: 12px;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes gold-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+}
+
+/* 5. Réglages de base pour le luxe */
+@layer base {
+  body {
+    @apply bg-night text-silk antialiased selection:bg-gold selection:text-night;
+    scroll-behavior: smooth;
+  }
+
+  /* Style des barres de défilement (Scrollbar) pour rester discret */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-night;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold/30 hover:bg-gold/50 transition-colors;
+  }
+}
+
+/* 6. Utilitaires personnalisés */
+@layer utilities {
+  .text-shadow-gold {
+    text-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
+  }
+  
+  .border-gold-gradient {
+    border-image: linear-gradient(to bottom, #c5a059, transparent) 1;
+  }
+}
+[x-cloak] {
+     display: none !important;
+     }
