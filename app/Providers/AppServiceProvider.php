@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Force le HTTPS sur Railway pour éviter le 401 sur l'upload Livewire
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
     }
 }

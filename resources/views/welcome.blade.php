@@ -44,17 +44,17 @@
 
     <section class="bg-night py-24 px-6 border-t border-gold/10">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-24">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                 
                 @forelse($properties as $property)
                     <div class="group">
-                        <div class="relative aspect-[4/5] overflow-hidden bg-zinc-900 shadow-2xl">
+                        <div class="relative aspect-[3/4] overflow-hidden bg-zinc-900 rounded-sm shadow-2xl border border-white/5">
                             <img src="{{ $property->getFirstMediaUrl('properties_gallery') }}" 
                                  alt="{{ $property->title }}"
                                  class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 opacity-80 group-hover:opacity-100">
                             
                             <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-night to-transparent">
-                                <p class="font-serif text-gold text-2xl italic tracking-wide">
+                                <p class="font-serif text-gold text-lg italic tracking-wide">
                                     {{ number_format($property->price, 0, ',', ' ') }} XOF
                                 </p>
                             </div>
@@ -62,10 +62,10 @@
 
                         <div class="mt-8">
                             <span class="font-sans text-gold/60 text-[10px] uppercase tracking-[0.4em]">{{ $property->city }}</span>
-                            <h3 class="font-serif text-silk text-3xl mt-2 group-hover:text-gold transition-colors duration-500">
+                            <h3 class="font-serif text-silk text-base md:text-lg mt-1 group-hover:text-gold transition-colors duration-500 line-clamp-1">
                                 {{ $property->title }}
                             </h3>
-                           <div class="mt-4 flex gap-8 text-silk/50 font-sans text-xs uppercase tracking-widest">
+                           <div class="mt-3 flex gap-4 text-silk/40 font-sans text-[9px] uppercase tracking-widest border-t border-gold/10 pt-3">
                                 <span>
                                     <strong class="text-silk">{{ $property->rooms }}</strong> Chambres
                                 </span>
@@ -88,7 +88,7 @@
         <p class="font-serif text-gold/30 text-sm">© {{ date('Y') }} Aurelius & Co. Patrimoine</p>
     </footer>
 
-    <x-finance-calculator :price="$property->price" />
+    <x-finance-calculator :price="$properties->first()->price ?? 0" />
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
