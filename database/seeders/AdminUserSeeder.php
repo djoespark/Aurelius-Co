@@ -11,14 +11,16 @@ class AdminUserSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-{
-    \App\Models\User::updateOrCreate(
+    {
+    App\Models\User;
+
+        User::updateOrCreate(
         ['email' => 'djaglijosephbenoit@gmail.com'],
         [
             'name' => 'Joseph',
-            'password' => \Hash::make(Joseph1234), 
+            'password' => 'Joseph1234', 
             'email_verified_at' => now(),
         ]
     );
-}
+    }
 }
