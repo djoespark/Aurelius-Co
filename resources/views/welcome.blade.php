@@ -88,12 +88,12 @@
         <p class="font-serif text-gold/30 text-sm">© {{ date('Y') }} Aurelius & Co. Patrimoine</p>
     </footer>
 
-    <x-finance-calculator :price="$properties->first()->price ?? 0" />
+    {{-- <x-finance-calculator :price="$properties->first()->price ?? 0" /> --}}
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Bulle de Marc Luxe -->
-<div x-data="chatMarc()" style="position:fixed; bottom:20px; right:20px; z-index:999;" class="font-sans">
+   {{-- <div x-data="chatMarc()" style="position:fixed; bottom:20px; right:20px; z-index:999;" class="font-sans"> </div> --}}
 
   <!-- Bulle fermée -->
   <div @click="toggle()" 
