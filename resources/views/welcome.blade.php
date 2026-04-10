@@ -11,7 +11,9 @@
     <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-night/60 z-10"></div>
-            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-40">
+            <video autoplay muted loop playsinline preload="auto" 
+                   poster="{{ asset('images/hero-poster.jpg') }}" 
+                   class="w-full h-full object-cover opacity-40">
                 <source src="{{ asset('videos/hero.mp4') }}" type="video/mp4">
             </video>
         </div>
