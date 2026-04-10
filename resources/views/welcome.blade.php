@@ -95,7 +95,7 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Bulle de Marc Luxe -->
-   {{-- <div x-data="chatMarc()" style="position:fixed; bottom:20px; right:20px; z-index:999;" class="font-sans"> </div> --}}
+   {{-- <div x-data="chatMarc()" style="position:fixed; bottom:20px; right:20px; z-index:999;" class="font-sans"> --}}
 
   <!-- Bulle fermée -->
   <div @click="toggle()" 
